@@ -1,0 +1,171 @@
+@import url("reset.css");
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #4611c7;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.Form {
+  padding: 1rem;
+  width: 50%;
+  .main-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #4611c7;
+  }
+  &-title {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    color: #4611c7;
+  }
+
+  .input {
+    outline: none;
+    border-radius: 24px 4px;
+    border: 1px solid #4611c7;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  &-month {
+    margin-right: 1rem;
+  }
+  &-month,
+  &-year,
+  &-cvv {
+    width: 8rem !important;
+  }
+}
+.card {
+  width: 350px;
+  height: 200px;
+  perspective: 500px;
+  margin-left: 2rem;
+  color: rgba(0, 0, 0, 0.5);
+
+  &-numbers {
+    font-size: 2rem;
+    overflow: hidden;
+  }
+  &-chip {
+    width: 50px;
+  }
+  &-text {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  &-name {
+    text-transform: uppercase;
+    overflow: hidden;
+  }
+  &-date {
+    position: relative;
+    font-size: 1.5rem;
+    display: flex;
+    &::after {
+      content: "MONTH/YEAR";
+      font-size: 7px;
+      position: absolute;
+      top: -5px;
+      left: 0;
+    }
+    &::before {
+      content: "valid thru";
+      right: 100%;
+      margin-right: 5px;
+      margin-top: 2px;
+      bottom: 5px;
+      position: absolute;
+      font-size: 7px;
+    }
+  }
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.front {
+  padding: 20px;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #dddddd;
+  border-radius: 5px;
+  backface-visibility: hidden;
+  &-bar {
+    width: 100%;
+    height: 3rem;
+    background-color: rgb(44, 44, 44);
+    margin-top: 1.2rem;
+  }
+  &-code {
+    display: flex;
+    margin-top: 1rem;
+    &-bar {
+      width: 100%;
+      height: 2rem;
+      background-color: #fff;
+      margin-left: 0.5rem;
+    }
+  }
+  &-card-cvv {
+    text-align: center;
+    width: 20%;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  &-chip {
+    width: 50px;
+    height: 35px;
+    border-radius: 5px;
+    background: #ccc;
+    position: relative;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+
+    &::before {
+      content: " ";
+      display: block;
+      width: 70%;
+      height: 60%;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      background: #d9d9d9;
+      top: 20%;
+      position: absolute;
+    }
+  }
+  &-text {
+    font-size: 0.5rem;
+  }
+}
+
+.back {
+  transform: rotateY(180deg);
+}
